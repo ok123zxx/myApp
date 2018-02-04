@@ -9,14 +9,13 @@ import javax.persistence.Id;
 public class Store {
 
 	@Id
-	@GeneratedValue
 	private String id;
 	
 	@Column
-	private String key;
+	private String kkeeyy;
 	
 	@Column
-	private String value;
+	private String val;
 
 	public String getId() {
 		return id;
@@ -26,21 +25,19 @@ public class Store {
 		this.id = id;
 	}
 
-	public String getKey() {
-		return key;
+	public String getKkeeyy() {
+		return kkeeyy;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKkeeyy(String kkeeyy) {
+		this.kkeeyy = kkeeyy;
 	}
 
-	public String getValue() {
-		return value;
+	public String getVal() {
+		return val;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setVal(String val) {
+		this.val = val;
 	}
-	
-	
 }

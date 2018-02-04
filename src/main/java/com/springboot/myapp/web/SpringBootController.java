@@ -1,5 +1,6 @@
 package com.springboot.myapp.web;
 
+import com.springboot.myapp.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,10 @@ public class SpringBootController {
 
 	@Autowired
 	private SpringBootService bootService;
-	
+
+	@Autowired
+	private StoreService storeService;
+
 	@RequestMapping(value = "/getName")
 	public String getName() {
 		return bootService.getName();
@@ -25,5 +29,10 @@ public class SpringBootController {
 			throw new BaseException();
 		}
 		return "如果你看到这条信息就炸了";
+	}
+
+	@RequestMapping(value = "/createStore")
+	public Object createStore(String key,String value){
+		return storeService.createStore(key,value);
 	}
 }
