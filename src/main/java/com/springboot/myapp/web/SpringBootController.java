@@ -3,6 +3,7 @@ package com.springboot.myapp.web;
 import com.springboot.myapp.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.myapp.exception.BaseException;
@@ -35,4 +36,15 @@ public class SpringBootController {
 	public Object createStore(String key,String value){
 		return storeService.createStore(key,value);
 	}
+
+	@RequestMapping(value = "/createByMapper")
+	public Object createStoreByMapper(String key,String value){
+		return storeService.createByMapper(key, value);
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/findByMapper")
+	public Object findByMapper(String id){
+	    return storeService.findStore(id);
+    }
 }
