@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories("com.springboot.myapp.dao")//jpa扫包配置
 @EntityScan("com.springboot.myapp.entity")//jpa扫包配置
 
-@ComponentScan(basePackages = {"com.springboot.myapp.service","com.springboot.myapp.web"})
+@ComponentScan(basePackages = {"com.springboot.myapp.service","com.springboot.myapp.web","com.springboot.myapp.handler"})
 //注意这里扫包不能直接扫，com.springboot.myapp，启动报错 If you want an embedded database please put a supported one on the classpath
 
 public class App {

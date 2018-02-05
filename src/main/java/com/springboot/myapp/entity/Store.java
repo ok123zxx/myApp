@@ -2,7 +2,6 @@ package com.springboot.myapp.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name = "store")
@@ -12,7 +11,7 @@ public class Store {
 	private String id;
 	
 	@Column
-	private String kkeeyy;
+	private String keyT;
 	
 	@Column
 	private String val;
@@ -25,12 +24,12 @@ public class Store {
 		this.id = id;
 	}
 
-	public String getKkeeyy() {
-		return kkeeyy;
+	public String getKeyT() {
+		return keyT;
 	}
 
-	public void setKkeeyy(String kkeeyy) {
-		this.kkeeyy = kkeeyy;
+	public void setKeyT(String keyT) {
+		this.keyT = keyT;
 	}
 
 	public String getVal() {

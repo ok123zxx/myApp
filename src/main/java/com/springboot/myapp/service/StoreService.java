@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.myapp.dao.StoreDao;
 
+import java.util.UUID;
+
 @Service
 public class StoreService {
 
@@ -14,12 +16,15 @@ public class StoreService {
 
 	public Store createStore(String key,String value){
 		Store store = new Store();
-		store.setId("kkid");
-		store.setKkeeyy("testKey");
-		store.setVal("testValue");
-//        Store result = storeDao.findOne("myId");
-//        return result;
+		store.setId(UUID.randomUUID().toString());
+		store.setKeyT(key);
+		store.setVal(value);
 		storeDao.save(store);
 		return store;
+	}
+
+	public Store findStore(String id){
+        Store result = storeDao.findOne(id);
+        return result;
 	}
 }

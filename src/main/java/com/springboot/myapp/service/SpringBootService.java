@@ -1,5 +1,6 @@
 package com.springboot.myapp.service;
 
+import com.springboot.myapp.exception.BaseException;
 import org.springframework.stereotype.Service;
 
 @Service
