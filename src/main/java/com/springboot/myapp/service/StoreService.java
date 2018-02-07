@@ -1,6 +1,7 @@
 package com.springboot.myapp.service;
 
 import com.springboot.myapp.entity.Store;
+import com.springboot.myapp.exception.BaseException;
 import com.springboot.myapp.mapper.StoreMapper;
 import com.springboot.myapp.mapper.datasrc1Mapper.DataSrc1StoreMapper;
 import com.springboot.myapp.mapper.datasrc2Mapper.DataSrc2StoreMapper;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.springboot.myapp.dao.StoreDao;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -40,12 +42,14 @@ public class StoreService {
         return result;
 	}
 
+	@Transactional
 	public Store createByMapper(String key,String value){
 		Store store = new Store();
 		store.setId(UUID.randomUUID().toString());
 		store.setKeyT(key);
 		store.setVal(value);
 		storeMapper.insert(store);
+		if(true)throw new BaseException();
 		return store;
 	}
 

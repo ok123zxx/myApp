@@ -1,4 +1,4 @@
-package com.springboot.myapp.datasource;
+package com.springboot.myapp.app.datasource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -28,7 +28,7 @@ public class Datasource2Config {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "dataSrc2TransactionManager")
+    @Bean(name = "transactionManager")
     public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc2") DataSource dataSource){
         return new DataSourceTransactionManager(dataSource);
     }
@@ -44,9 +44,6 @@ public class Datasource2Config {
         return bean.getObject();
     }
 
-    /*
-     * TODO [zengjian] 这个是干嘛的？
-     */
     @Bean(name = "dateSrc2SqlSessionTemplate")
     @Primary
     public SqlSessionTemplate getSqlSessionTemplate(@Qualifier("dateSrc2SessionFactory")SqlSessionFactory sqlSessionFactory){

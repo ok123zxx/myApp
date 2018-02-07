@@ -1,4 +1,4 @@
-package com.springboot.myapp.datasource;
+package com.springboot.myapp.app.datasource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
@@ -29,10 +26,10 @@ public class Datasource1Config {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "dataSrc1TransactionManager")
-    public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc1") DataSource dataSource){
-        return new DataSourceTransactionManager(dataSource);
-    }
+//    @Bean(name = "dataSrc1TransactionManager")
+//    public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc1") DataSource dataSource){
+//        return new DataSourceTransactionManager(dataSource);
+//    }
 
     @Bean(name = "dateSrc1SessionFactory")
     public SqlSessionFactory getSqlSessionFactroy(@Qualifier("dataSrc1") DataSource dataSource) throws Exception {
@@ -45,7 +42,7 @@ public class Datasource1Config {
     }
 
     /*
-     * TODO [zengjian] 这个是干嘛的？
+     * TODO [zengjian] 是MyBatis-Spring的核心，具体负责什么这个是干嘛的？
      */
     @Bean(name = "dateSrc1SqlSessionTemplate")
     public SqlSessionTemplate getSqlSessionTemplate(@Qualifier("dateSrc1SessionFactory")SqlSessionFactory sqlSessionFactory){
