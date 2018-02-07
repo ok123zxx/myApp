@@ -47,4 +47,16 @@ public class SpringBootController {
 	public Object findByMapper(String id){
 	    return storeService.findStore(id);
     }
+
+
+	@RequestMapping(value = "/createByDateSrc1")
+	public Object createByDateSrc1(String key,String value){
+		return storeService.createByDateSrc1(key, value);
+	}
+
+	@RequestMapping(value = "/createByDateSrc2")
+	public Object createByDateSrc2(String key,String value){
+		return storeService.createByDateSrc2(key, value);
+	}
+
 }
