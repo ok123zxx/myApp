@@ -18,12 +18,12 @@ import javax.sql.DataSource;
  * 基于mybatis的数据源 2 的配置
  */
 @Configuration
-@MapperScan(basePackages = {"com.springboot.myapp.datasrc2Mapper"},sqlSessionFactoryRef = "dateSrc2SessionFactory")
+@MapperScan(basePackages = {"com.springboot.myapp.mapper.datasrc2Mapper"},sqlSessionFactoryRef = "dateSrc2SessionFactory")
 public class Datasource2Config {
 
     @Bean(name = "dataSrc2")
-    @Primary
     @ConfigurationProperties(prefix = "spring.datasource.test2")
+    @Primary
     public DataSource getDataSource(){
         return DataSourceBuilder.create().build();
     }
@@ -34,6 +34,7 @@ public class Datasource2Config {
     }
 
     @Bean(name = "dateSrc2SessionFactory")
+    @Primary
     public SqlSessionFactory getSqlSessionFactroy(@Qualifier("dataSrc2") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dataSource);
@@ -47,6 +48,7 @@ public class Datasource2Config {
      * TODO [zengjian] 这个是干嘛的？
      */
     @Bean(name = "dateSrc2SqlSessionTemplate")
+    @Primary
     public SqlSessionTemplate getSqlSessionTemplate(@Qualifier("dateSrc2SessionFactory")SqlSessionFactory sqlSessionFactory){
         return new SqlSessionTemplate(sqlSessionFactory);
     }

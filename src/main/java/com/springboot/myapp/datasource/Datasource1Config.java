@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * 基于mybatis的数据源 1 的配置
  */
 @Configuration
-@MapperScan(basePackages = {"com.springboot.myapp.datasrc1Mapper"},sqlSessionFactoryRef = "dateSrc1SessionFactory")
+@MapperScan(basePackages = {"com.springboot.myapp.mapper.datasrc1Mapper"},sqlSessionFactoryRef = "dateSrc1SessionFactory")
 public class Datasource1Config {
 
     @Bean(name = "dataSrc1")

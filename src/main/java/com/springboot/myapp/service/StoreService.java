@@ -2,8 +2,8 @@ package com.springboot.myapp.service;
 
 import com.springboot.myapp.entity.Store;
 import com.springboot.myapp.mapper.StoreMapper;
-import com.springboot.myapp.datasrc1Mapper.DataSrc1StoreMapper;
-import com.springboot.myapp.datasrc2Mapper.DataSrc2StoreMapper;
+import com.springboot.myapp.mapper.datasrc1Mapper.DataSrc1StoreMapper;
+import com.springboot.myapp.mapper.datasrc2Mapper.DataSrc2StoreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

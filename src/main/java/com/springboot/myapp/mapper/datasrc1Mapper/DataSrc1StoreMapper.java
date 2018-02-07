@@ -1,10 +1,10 @@
-package com.springboot.myapp.datasrc2Mapper;
+package com.springboot.myapp.mapper.datasrc1Mapper;
 
 import com.springboot.myapp.entity.Store;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
-public interface DataSrc2StoreMapper {
+public interface DataSrc1StoreMapper {
 
     @Select("select * from store where id = #{id}")
     Store getById(String id);
