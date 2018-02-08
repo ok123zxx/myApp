@@ -26,10 +26,10 @@ public class Datasource1Config {
         return DataSourceBuilder.create().build();
     }
 
-//    @Bean(name = "dataSrc1TransactionManager")
-//    public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc1") DataSource dataSource){
-//        return new DataSourceTransactionManager(dataSource);
-//    }
+    @Bean(name = "dataSrc1TransactionManager")//这个事务起作用的范围就是 @MapperScan(basePackages 的范围
+    public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc1") DataSource dataSource){
+        return new DataSourceTransactionManager(dataSource);
+    }
 
     @Bean(name = "dateSrc1SessionFactory")
     public SqlSessionFactory getSqlSessionFactroy(@Qualifier("dataSrc1") DataSource dataSource) throws Exception {

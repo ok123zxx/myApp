@@ -28,7 +28,7 @@ public class Datasource2Config {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "transactionManager")
+    @Bean(name = "dataSrc2TransactionManager")
     public DataSourceTransactionManager getTransactionManager(@Qualifier("dataSrc2") DataSource dataSource){
         return new DataSourceTransactionManager(dataSource);
     }
