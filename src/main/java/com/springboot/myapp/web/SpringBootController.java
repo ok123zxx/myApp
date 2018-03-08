@@ -3,6 +3,8 @@ package com.springboot.myapp.web;
 import com.springboot.myapp.exception.BaseException;
 import com.springboot.myapp.service.SpringBootService;
 import com.springboot.myapp.service.StoreService;
+import com.springboot.myapp.utils.Underline2Camel;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +18,28 @@ public class SpringBootController {
 
 	@Autowired
 	private StoreService storeService;
+
+	/*
+	 * 驼峰转下划线
+	 */
+	@RequestMapping("/camel2Undeline")
+	public Object camel2Undeline(String str){
+        if(StringUtils.isBlank(str) || str.length() > 500){
+            return null;
+        }
+        return Underline2Camel.camel2Underline(str);
+	}
+
+	/*
+	 * 下划线转驼峰
+	 */
+	@RequestMapping("/undeline2Camel")
+	public Object undeline2Camel(String str,Boolean small){
+        if(StringUtils.isBlank(str) || str.length() > 500){
+            return null;
+        }
+        return Underline2Camel.underline2Camel(str,small);
+	}
 
 	@RequestMapping(value = "/getName")
 	public String getName() {

@@ -12,6 +12,6 @@ public class IndexController {
 		map.put("name", "caion");
 		
 		System.out.println("in index page");
-		return "index";
+		return "translate";
 	}
 }
