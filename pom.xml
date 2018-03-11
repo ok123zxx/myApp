@@ -83,7 +83,7 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <mainClass>cn.springboot.Mainspringboot</mainClass>
+                    <mainClass>com.springboot.myapp.app.App</mainClass>
                 </configuration>
             </plugin>
 		</plugins>
