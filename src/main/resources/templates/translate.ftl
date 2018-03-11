@@ -54,12 +54,23 @@
             });
         });
 
+
     </script>
     <style>
         textarea{
             resize: none;
         }
     </style>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b354bf8e2015c68d1867036bbf0dea8f";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <div class="container">
