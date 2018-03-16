@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @SpringBootApplication
@@ -23,6 +24,9 @@ import org.springframework.context.annotation.ComponentScan;
 //启动报错 If you want an embedded database please put a supported one on the classpath
 
 //@EnableTransactionManagement //spring事务：编程事务，声明事务（xml,注解配置）
+
+
+@EnableSwagger2//开启Swagger，然后通过http://localhost:端口/swagger-ui.html访问
 public class App {
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
