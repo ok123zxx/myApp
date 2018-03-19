@@ -3,11 +3,14 @@ package com.springboot.myapp.web;
 import com.springboot.myapp.exception.BaseException;
 import com.springboot.myapp.service.SpringBootService;
 import com.springboot.myapp.service.StoreService;
+import com.springboot.myapp.utils.CommonUtils;
 import com.springboot.myapp.utils.Underline2Camel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(value = "/base")
@@ -23,7 +26,8 @@ public class SpringBootController {
 	 * 驼峰转下划线
 	 */
 	@RequestMapping("/camel2Undeline")
-	public Object camel2Undeline(String str){
+	public Object camel2Undeline(String str, HttpServletRequest request){
+		CommonUtils.print(request);
         if(StringUtils.isBlank(str) || str.length() > 500){
             return null;
         }
@@ -69,6 +73,8 @@ public class SpringBootController {
 //	public Object findByMapper(String id){
 //	    return storeService.findStore(id);
 //    }
+
+
 
 
 }
