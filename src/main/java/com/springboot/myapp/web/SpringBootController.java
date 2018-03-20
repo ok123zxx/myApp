@@ -27,7 +27,6 @@ public class SpringBootController {
 	 */
 	@RequestMapping("/camel2Undeline")
 	public Object camel2Undeline(String str, HttpServletRequest request){
-		CommonUtils.print(request);
         if(StringUtils.isBlank(str) || str.length() > 500){
             return null;
         }
