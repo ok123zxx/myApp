@@ -19,7 +19,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ComponentScan(basePackages = {
 		"com.springboot.myapp.service",
 		"com.springboot.myapp.web",
-		"com.springboot.myapp.handler"})
+		"com.springboot.myapp.handler",
+		"com.springboot.myapp.config"})
 //注意这里扫包不能直接扫，com.springboot.myapp，否则
 //启动报错 If you want an embedded database please put a supported one on the classpath
 
