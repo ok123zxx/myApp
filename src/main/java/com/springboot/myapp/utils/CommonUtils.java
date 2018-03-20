@@ -1,6 +1,8 @@
 package com.springboot.myapp.utils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -52,7 +54,11 @@ public class CommonUtils {
 
     private static void printLine(){
         System.out.println();
-        System.out.println("==================");
+        System.out.println("========="+getTimestamp()+"=========");
     }
 
+    private static String getTimestamp(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(new Date());
+    }
 }

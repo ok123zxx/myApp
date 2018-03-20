@@ -83,6 +83,7 @@
 
 	<build>
 		<plugins>
+			<!-- 制定jdk编译版本 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
