@@ -1,5 +1,8 @@
 package com.springboot.myapp.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,6 +12,8 @@ import java.util.StringJoiner;
 import java.util.stream.Stream;
 
 public class CommonUtils {
+
+    private static Logger logger = LoggerFactory.getLogger(CommonUtils.class);
 
     public static void print(HttpServletRequest request){
         Enumeration<String> headerNames = request.getHeaderNames();
@@ -49,12 +54,12 @@ public class CommonUtils {
     }
 
     private static void print(String value){
-        System.out.print(value);
+        logger.info(value);
     }
 
     private static void printLine(){
-        System.out.println();
-        System.out.println("========="+getTimestamp()+"=========");
+        logger.info("\n");
+        logger.info("========="+getTimestamp()+"=========");
     }
 
     private static String getTimestamp(){

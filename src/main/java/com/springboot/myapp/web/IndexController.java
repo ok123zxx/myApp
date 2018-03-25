@@ -12,6 +12,7 @@ public class IndexController {
 
 	@RequestMapping(value = "/index")
 	public String index(ModelMap map, HttpServletRequest request) {
+		CommonUtils.print(request);
 		return "translate";
 	}
 }
