@@ -31,7 +31,13 @@ public class WebLogAspect {
     @Before("webLog()")
     public void doBefore() throws Throwable{
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if(attributes == null){
+            return ;
+        }
         HttpServletRequest request = attributes.getRequest();
+        if(request == null){
+            return;
+        }
         printLog("############Request-begin###############");
         printLog("URL:"+request.getRequestURI().toString());
         printLog("HTTP_METHOD:"+request.getMethod());

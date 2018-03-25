@@ -19,7 +19,7 @@ public class GlobalExcetpionHandler {
 		e.printStackTrace();
 		return "runTime error handler";
 	}
-	
+
 	@ResponseBody
 	@ExceptionHandler(BaseException.class)//业务异常
 	public Object baseExceptionHandler(BaseException e) {
