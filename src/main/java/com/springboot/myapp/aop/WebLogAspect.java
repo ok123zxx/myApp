@@ -38,18 +38,35 @@ public class WebLogAspect {
         if(request == null){
             return;
         }
+        StringBuilder sb = new StringBuilder();
         printLog("############Request-begin###############");
         printLog("URL:"+request.getRequestURI().toString());
         printLog("HTTP_METHOD:"+request.getMethod());
         printLog("IP:"+request.getRemoteAddr());
-        Enumeration<String> parameterNames = request.getParameterNames();
-        StringBuilder sb = new StringBuilder();
-        while (parameterNames.hasMoreElements()){
-            String name = parameterNames.nextElement();
-            String parameter = request.getParameter(name);
-            sb.append("name:{"+name+"},value:{"+parameter+"}").append("\n");
+        //heaeder信息
+        Enumeration<String> headerNames = request.getHeaderNames();
+        if(headerNames.hasMoreElements()){
+            sb.append("HEADER:");
+            while(headerNames.hasMoreElements()){
+                String key = headerNames.nextElement();
+                String header = request.getHeader(key);
+                sb.append("key:{").append(key).append("},value{").append(header).append("}").append("\n");
+            }
+            printLog(sb.toString());
         }
-        printLog(sb.toString());
+
+        //参数信息
+        Enumeration<String> parameterNames = request.getParameterNames();
+        if(parameterNames.hasMoreElements()){
+            sb.setLength(0);
+            sb.append("PARAMTER:");
+            while (parameterNames.hasMoreElements()){
+                String name = parameterNames.nextElement();
+                String parameter = request.getParameter(name);
+                sb.append("name:{"+name+"},value:{"+parameter+"}").append("\n");
+            }
+            printLog(sb.toString());
+        }
         printLog("############Request-end#################");
     }
 
