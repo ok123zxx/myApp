@@ -14,7 +14,6 @@ public class SpringBootService {
 
 	@Async//("taskExecutor")//可以指定名taskExcutor
 	public String getAsyncname() throws Exception{
-		Thread.sleep(1000*5);
 		LogUtils.infoPrint("finish job!");
 		return "service get name caion";
 	}

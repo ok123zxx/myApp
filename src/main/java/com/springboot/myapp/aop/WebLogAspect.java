@@ -29,7 +29,7 @@ public class WebLogAspect {
     }
 
     @Before("webLog()")
-    public void doBefore() throws Throwable{
+    public void doBeforeWebLog() throws Throwable{
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         if(attributes == null){
             return ;
@@ -76,6 +76,14 @@ public class WebLogAspect {
     }
 
     //service日志
+    @Pointcut("execution(public * com.springboot.myapp.service..*.*(..))")
+    public void serviceLog(){}
+
+    @Before("serviceLog()")
+    public void doBeforeServiceLog(){
+        printLog("Service log");
+    }
+
 
     //dao日志
 }
