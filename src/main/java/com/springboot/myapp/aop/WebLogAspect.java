@@ -1,11 +1,11 @@
 package com.springboot.myapp.aop;
 
-import com.springboot.myapp.utils.LogUtils;
-import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -20,12 +20,14 @@ import java.util.Enumeration;
 @Component
 public class WebLogAspect {
 
+    private static Logger logger = LoggerFactory.getLogger(WebLogAspect.class);
+
     //web日志
     @Pointcut("execution(public * com.springboot.myapp.web..*.*(..))")
     public void webLog(){}
 
     public void printLog(String str){
-        LogUtils.infoPrint(str);
+        logger.info(str);
     }
 
     @Before("webLog()")
@@ -50,7 +52,7 @@ public class WebLogAspect {
             while(headerNames.hasMoreElements()){
                 String key = headerNames.nextElement();
                 String header = request.getHeader(key);
-                sb.append("key:{").append(key).append("},value{").append(header).append("}").append("\n");
+                sb.append("key{").append(key).append("},value{").append(header).append("}").append("\n");
             }
             printLog(sb.toString());
         }
