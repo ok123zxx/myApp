@@ -16,7 +16,6 @@ public class IndexController {
 
 	@RequestMapping(value = "/index")
 	public String index(ModelMap map, HttpServletRequest request) {
-		LogUtils.warnPrint("312");
 		return "translate";
 	}
 }
