@@ -4,6 +4,7 @@ import com.springboot.myapp.exception.BaseException;
 import com.springboot.myapp.service.SpringBootService;
 import com.springboot.myapp.service.StoreService;
 import com.springboot.myapp.utils.CommonUtils;
+import com.springboot.myapp.utils.JedisUtils;
 import com.springboot.myapp.utils.Underline2Camel;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,16 @@ public class SpringBootController {
 		}
 		return "如果你看到这条信息就炸了";
 	}
+
+	@RequestMapping(value = "/redis")
+	public String redisTest(String key){
+		if("caion".equals(key)){
+			JedisUtils.set(key,"zzzxxx",100);
+			return JedisUtils.get(key);
+		}
+		return "fail";
+	}
+
 
 //	@RequestMapping(value = "/createStore")
 //	public Object createStore(String key,String value){
